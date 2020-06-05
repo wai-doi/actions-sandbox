@@ -19,7 +19,7 @@ jobs:
       run: gem install holiday_jp
     - name: Run
       id: script
-      run: ruby -r holiday_jp -e 'if false ;exit(1);end;exit(0)'
+      run: ruby -r holiday_jp -e 'if true ;exit(1);end;exit(0)'
     - name: echo
       run: echo 'Hello'
       if: ${{ steps.script.outcome }}
