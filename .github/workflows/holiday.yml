@@ -18,7 +18,9 @@ jobs:
     - name: Install dependencies
       run: gem install holiday_jp
     - name: Run
-      run: ruby -r holiday_jp -e 'if !!HolidayJp.holiday?(Date.today) ;exit(1);end;exit(0)'
+      id: script
+      run: ruby -r holiday_jp -e 'if false ;exit(1);end;exit(0)'
     - name: echo
       run: echo 'Hello'
+      if: ${{ steps.script.outcome }}
 
