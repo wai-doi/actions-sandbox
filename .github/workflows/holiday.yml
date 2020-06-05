@@ -23,4 +23,4 @@ jobs:
         echo "::set-output name=result::$(ruby -r holiday_jp -e 'p !!HolidayJp.holiday?(Date.today')"
     - name: echo
       run: echo 'Hello'
-      if: ${{ steps.holiday-judge.outputs.result == 'true' }}
+      if: ${{ steps.holiday-judge.outputs.result == false }}
