@@ -16,7 +16,6 @@ jobs:
         ruby-version: 2.6
     - name: set output
       id: result
-      run: echo "::set-output name=result::$(ruby -e 'p ({name: "taro", age: "20"})')"
+      run: echo ::set-output name=result::$(ruby -e 'p {"name" => "a"}')
     - run: echo ${{ steps.result.outputs.result['name'] }}
-    - run: echo ${{ steps.result.outputs.result['1'] }}
     - run: echo ${{ steps.result.outputs.result }}
