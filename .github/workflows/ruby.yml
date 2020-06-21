@@ -16,6 +16,6 @@ jobs:
         ruby-version: 2.6
     - name: set output
       id: result
-      run: echo "::set-output name=result::$(ruby -e 'p {"name" => "a"}')"
-    - run: echo ${{ fromJson(steps.result.outputs.result)['name'] }}
-    - run: echo ${{ fromJson(steps.result.outputs.result) }}
+      run: echo "::set-output name=result::$(ruby -e 'p ["a", "b"]')"
+    - run: echo ${{ steps.result.outputs.result["a"] }}
+    - run: echo ${{ steps.result.outputs.result }}
