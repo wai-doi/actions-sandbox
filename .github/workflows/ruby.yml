@@ -17,5 +17,5 @@ jobs:
     - name: set output
       id: result
       run: echo "::set-output name=result::$(ruby -e 'p ["a", "b"]')"
-    - run: echo ${{ steps.result.outputs.result[1] }}
-    - run: echo ${{ steps.result.outputs.result }}
+    - run: echo ${{ toJson(steps.result.outputs.result)[1] }}
+    - run: echo ${{ toJson(steps.result.outputs.result) }}
