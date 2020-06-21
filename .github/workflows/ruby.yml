@@ -17,4 +17,6 @@ jobs:
     - name: set output
       id: result
       run: echo "::set-output name=result::$(ruby -e 'p ["1", "2"]')"
+    - run: echo ${{ steps.result.outputs.result[0] }}
+    - run: echo ${{ steps.result.outputs.result[1] }}
     - run: echo ${{ steps.result.outputs.result }}
