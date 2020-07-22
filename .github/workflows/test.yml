@@ -1,0 +1,24 @@
+name: Test
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+
+    - name: Create files
+      run: |
+        mkdir tmp
+        echo 'test1' > tmp/test1.txt
+        echo 'test2' > tmp/test2.txt
+        
+    - uses: actions/upload-artifact@v2
+      with:
+        name: my-artifact
+        path: tmp/**
